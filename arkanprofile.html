@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أركان الاستدامة للاستثمار</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b3e;
+    --navy-mid: #152244;
+    --navy-light: #1c2f5e;
+    --gold: #e8c44a;
+    --gold-dark: #c9a730;
+    --white: #ffffff;
+    --white-70: rgba(255,255,255,0.7);
+    --white-20: rgba(255,255,255,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(13,27,62,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(232,196,74,0.2);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 72px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; }
+  .nav-logo .brand { font-size: 22px; font-weight: 900; letter-spacing: 3px; color: var(--gold); }
+  .nav-logo .sub { font-size: 11px; color: var(--white-70); letter-spacing: 1px; font-weight: 300; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: var(--white-70); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .25s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 40%, rgba(232,196,74,0.06) 0%, transparent 70%),
+      linear-gradient(160deg, #0d1b3e 0%, #122050 50%, #0d1b3e 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(232,196,74,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,196,74,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 800px; }
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 11px; letter-spacing: 3px; font-weight: 600;
+    padding: 6px 20px; border-radius: 2px;
+    margin-bottom: 32px;
+    animation: fadeUp .8s ease both;
+  }
+  .hero h1 {
+    font-size: clamp(42px, 7vw, 90px);
+    font-weight: 900; line-height: 1.1;
+    animation: fadeUp .8s .15s ease both;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    margin-top: 24px;
+    font-size: 17px; line-height: 1.8;
+    color: var(--white-70); max-width: 600px; margin-inline: auto;
+    animation: fadeUp .8s .3s ease both;
+  }
+  .hero-stats {
+    margin-top: 56px;
+    display: flex; gap: 0; justify-content: center;
+    animation: fadeUp .8s .45s ease both;
+  }
+  .hero-stat {
+    padding: 24px 48px;
+    border-left: 1px solid rgba(232,196,74,0.2);
+  }
+  .hero-stat:last-child { border-right: 1px solid rgba(232,196,74,0.2); }
+  .hero-stat .num { font-size: 36px; font-weight: 900; color: var(--gold); line-height: 1; }
+  .hero-stat .lbl { font-size: 12px; color: var(--white-70); margin-top: 6px; letter-spacing: 1px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; letter-spacing: 4px; color: var(--gold);
+    font-weight: 700; text-transform: uppercase; margin-bottom: 16px;
+  }
+  h2.section-title {
+    font-size: clamp(32px, 4vw, 52px); font-weight: 900;
+    line-height: 1.15; margin-bottom: 24px;
+  }
+  .divider { width: 60px; height: 3px; background: var(--gold); margin-bottom: 48px; }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .about-text p {
+    font-size: 17px; line-height: 1.9; color: var(--white-70);
+  }
+  .about-numbers {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .about-card {
+    background: var(--white-20);
+    border: 1px solid rgba(232,196,74,0.15);
+    border-radius: 8px; padding: 32px 24px;
+    position: relative; overflow: hidden;
+  }
+  .about-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%; background: var(--gold);
+  }
+  .about-card .big { font-size: 40px; font-weight: 900; color: var(--gold); }
+  .about-card .desc { font-size: 13px; color: var(--white-70); margin-top: 8px; line-height: 1.6; }
+
+  /* ── VISION ── */
+  .vision-wrap { background: var(--navy-mid); border-radius: 0; margin: 0; max-width: 100%; }
+  .vision-inner { max-width: 1200px; margin: 0 auto; padding: 100px 48px; }
+  .vision-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+  .vision-card {
+    background: var(--white-20); border: 1px solid rgba(232,196,74,0.15);
+    border-radius: 8px; padding: 40px 36px;
+    position: relative;
+  }
+  .vision-num {
+    font-size: 72px; font-weight: 900; color: rgba(232,196,74,0.1);
+    position: absolute; top: 20px; right: 28px; line-height: 1;
+  }
+  .vision-card h3 { font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 16px; }
+  .vision-card p { font-size: 15px; line-height: 1.9; color: var(--white-70); }
+
+  /* ── MISSION ── */
+  .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .mission-text p { font-size: 17px; line-height: 1.9; color: var(--white-70); }
+  .mission-highlights { display: flex; flex-direction: column; gap: 24px; }
+  .mission-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 28px; background: var(--white-20);
+    border: 1px solid rgba(232,196,74,0.15); border-radius: 8px;
+  }
+  .mission-icon { font-size: 32px; line-height: 1; flex-shrink: 0; }
+  .mission-item h4 { font-size: 18px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+  .mission-item p { font-size: 14px; color: var(--white-70); line-height: 1.7; }
+
+  /* ── SERVICES ── */
+  .services-wrap { background: var(--navy-mid); max-width: 100%; }
+  .services-inner { max-width: 1200px; margin: 0 auto; padding: 100px 48px; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .service-card {
+    background: var(--navy);
+    border: 1px solid rgba(232,196,74,0.12);
+    border-radius: 8px; padding: 36px 28px;
+    transition: border-color .3s, transform .3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card:hover { border-color: var(--gold); transform: translateY(-6px); }
+  .service-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: var(--gold);
+    transform: scaleX(0); transition: transform .3s;
+    transform-origin: right;
+  }
+  .service-card:hover::after { transform: scaleX(1); transform-origin: left; }
+  .service-icon { font-size: 36px; margin-bottom: 20px; }
+  .service-card h3 { font-size: 19px; font-weight: 700; color: var(--gold); margin-bottom: 14px; }
+  .service-card p { font-size: 14px; color: var(--white-70); line-height: 1.8; }
+
+  /* ── TEAM ── */
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+  .team-card {
+    border: 1px solid rgba(232,196,74,0.15);
+    border-radius: 8px; overflow: hidden;
+    background: var(--white-20);
+    transition: transform .3s;
+  }
+  .team-card:hover { transform: translateY(-6px); }
+  .team-top {
+    background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+    height: 160px; display: flex; align-items: center; justify-content: center;
+    font-size: 64px;
+  }
+  .team-body { padding: 28px; }
+  .team-body h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .team-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .team-tag {
+    font-size: 11px; padding: 4px 12px;
+    border: 1px solid rgba(232,196,74,0.3); border-radius: 20px;
+    color: var(--gold); font-weight: 600;
+  }
+  .team-exp { font-size: 13px; color: var(--white-70); line-height: 1.6; margin-top: 10px; }
+
+  /* ── ACHIEVEMENTS ── */
+  .achievements-wrap { background: var(--navy-mid); max-width: 100%; }
+  .achievements-inner { max-width: 1200px; margin: 0 auto; padding: 100px 48px; }
+  .achieve-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+  .achieve-card {
+    text-align: center; padding: 48px 32px;
+    background: var(--navy); border: 1px solid rgba(232,196,74,0.15);
+    border-radius: 8px; position: relative; overflow: hidden;
+  }
+  .achieve-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,196,74,0.06) 0%, transparent 60%);
+  }
+  .achieve-big {
+    font-size: 64px; font-weight: 900; color: var(--gold); line-height: 1;
+    position: relative;
+  }
+  .achieve-card p { font-size: 15px; color: var(--white-70); margin-top: 16px; line-height: 1.7; position: relative; }
+
+  /* ── TARGETS ── */
+  .targets-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 48px; }
+  .target-card {
+    display: flex; gap: 24px; align-items: flex-start;
+    padding: 36px 32px; background: var(--white-20);
+    border: 1px solid rgba(232,196,74,0.15); border-radius: 8px;
+  }
+  .target-num { font-size: 48px; font-weight: 900; color: var(--gold); line-height: 1; flex-shrink: 0; }
+  .target-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+  .target-card p { font-size: 14px; color: var(--white-70); line-height: 1.7; }
+
+  /* ── PARTNERS ── */
+  .partners-wrap { background: var(--navy-mid); max-width: 100%; }
+  .partners-inner { max-width: 1200px; margin: 0 auto; padding: 100px 48px; }
+  .partners-row {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    margin-top: 48px; justify-content: center;
+  }
+  .partner-pill {
+    padding: 12px 28px;
+    border: 1px solid rgba(232,196,74,0.25);
+    border-radius: 4px; font-size: 15px; font-weight: 600;
+    color: var(--white-70); transition: all .25s;
+  }
+  .partner-pill:hover { background: rgba(232,196,74,0.08); color: var(--gold); border-color: var(--gold); }
+
+  /* ── CONTACT ── */
+  .contact-wrap {
+    background: linear-gradient(160deg, var(--navy-light) 0%, var(--navy) 100%);
+    border-top: 1px solid rgba(232,196,74,0.15);
+    max-width: 100%; padding: 0;
+  }
+  .contact-inner { max-width: 1200px; margin: 0 auto; padding: 100px 48px; text-align: center; }
+  .contact-inner h2 { font-size: clamp(32px, 4vw, 48px); font-weight: 900; margin-bottom: 16px; }
+  .contact-inner p { font-size: 17px; color: var(--white-70); margin-bottom: 48px; }
+  .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 700px; margin: 0 auto 48px; }
+  .contact-item { text-align: center; }
+  .contact-item .cicon { font-size: 28px; margin-bottom: 12px; }
+  .contact-item .clbl { font-size: 12px; color: var(--gold); letter-spacing: 2px; font-weight: 700; margin-bottom: 6px; }
+  .contact-item .cval { font-size: 15px; color: var(--white-70); }
+  .cta-btn {
+    display: inline-block; padding: 16px 48px;
+    background: var(--gold); color: var(--navy);
+    font-size: 16px; font-weight: 700; border-radius: 3px;
+    text-decoration: none; letter-spacing: 1px;
+    transition: background .25s, transform .2s;
+  }
+  .cta-btn:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080f23; padding: 32px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(232,196,74,0.1);
+  }
+  footer .brand { font-size: 18px; font-weight: 900; letter-spacing: 3px; color: var(--gold); }
+  footer .copy { font-size: 13px; color: var(--white-70); }
+  footer .site { font-size: 13px; color: var(--gold); }
+
+  /* ── SCROLL LINE ── */
+  .scroll-progress {
+    position: fixed; top: 72px; left: 0; height: 2px;
+    background: var(--gold); width: 0%; z-index: 99;
+    transition: width .1s;
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="sp"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div>
+      <div class="brand">ARKAN</div>
+      <div class="sub">Sustainable Investment</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">من نحن</a></li>
+    <li><a href="#vision">رؤيتنا</a></li>
+    <li><a href="#services">خدماتنا</a></li>
+    <li><a href="#team">فريقنا</a></li>
+    <li><a href="#achievements">إنجازاتنا</a></li>
+    <li><a href="#contact">تواصل معنا</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">أركان الاستدامة للاستثمار — spi.sa</div>
+    <h1>نبني <span>مستقبل</span><br>الاستثمار المستدام</h1>
+    <p>ردم الفجوة بين القطاع الخاص وغير الربحي من خلال حلول مالية وتقنية مبتكرة في قلب رؤية 2030</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">+25</div>
+        <div class="lbl">اتفاقية استراتيجية</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">+35</div>
+        <div class="lbl">صانع قرار</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">+120M</div>
+        <div class="lbl">ريال حركة مالية</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">01 — من نحن</div>
+      <h2 class="section-title">أركان الاستدامة<br>للاستثمار</h2>
+      <div class="divider"></div>
+      <p>يتمتع القطاعان الخاص وغير الربحي في المملكة العربية السعودية بفرص نمو غير مسبوقة بفضل الله ثم بفضل القيادة الحكيمة. رأينا في أركان فرصاً في قطاع الخدمات المالية لم تُستغل بالشكل الملائم، إذ تبلغ قيمة الودائع الزمنية والادخارية <strong style="color:var(--gold)">1.185 تريليون ريال</strong> (مارس 2026)، كما اخترقت مساهمة القطاع غير الربحي في الاقتصاد حاجز <strong style="color:var(--gold)">100 مليار ريال</strong>.</p>
+    </div>
+    <div class="about-numbers">
+      <div class="about-card">
+        <div class="big">1.185T</div>
+        <div class="desc">ريال قيمة الودائع الزمنية والادخارية (مارس 2026)</div>
+      </div>
+      <div class="about-card">
+        <div class="big">100B+</div>
+        <div class="desc">ريال مساهمة القطاع غير الربحي في الاقتصاد السعودي</div>
+      </div>
+      <div class="about-card">
+        <div class="big">72</div>
+        <div class="desc">نشاطاً للتقنية المالية عالمياً، 14 منها فقط مفعّل في السعودية</div>
+      </div>
+      <div class="about-card">
+        <div class="big">52Y</div>
+        <div class="desc">سنة خبرة مجمّعة لفريق أركان في قطاعات متنوعة</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<div class="vision-wrap">
+  <div class="vision-inner">
+    <div class="section-label">02 — رؤيتنا</div>
+    <h2 class="section-title">رؤيـتـنـا</h2>
+    <div class="divider"></div>
+    <div class="vision-cards">
+      <div class="vision-card">
+        <div class="vision-num">01</div>
+        <h3>ابتكار مالي مركّب</h3>
+        <p>ابتكار حلول مالية مركّبة (Composite FinTech & InsurTech) تحقق الأثر المنشود وتُقدَّم كنماذج جاهزة للاستفادة المباشرة للقطاع الخاص وغير الربحي.</p>
+      </div>
+      <div class="vision-card">
+        <div class="vision-num">02</div>
+        <h3>أدوات قوة مالية وبنكية</h3>
+        <p>جلب اتفاقيات بنكية ومالية وإطلاق أدوات مالية وبنكية وتأمينية لدمجها مع الممكنات المتاحة، بما ينعكس على نمو العمليات المالية وتحقيق الربحية والأثر.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="mission-grid">
+    <div class="mission-text">
+      <div class="section-label">03 — رسالتنا</div>
+      <h2 class="section-title">رسـالـتـنـا</h2>
+      <div class="divider"></div>
+      <p>نسعى إلى تعميق دور الحلول المالية لتحقيق مستهدفات منشآت القطاع الخاص وغير الربحي وتسهيل الوصول، وتفعيل الأصول الخاملة التي تمثل ثروة هائلة لم تُستثمر بعد.</p>
+    </div>
+    <div class="mission-highlights">
+      <div class="mission-item">
+        <div class="mission-icon">🏛️</div>
+        <div>
+          <h4>أصول الأوقاف الخاملة</h4>
+          <p>تبلغ قيمة الأصول الخاملة لدى الأوقاف <strong style="color:var(--gold)">255 مليار ريال</strong> وفق غرفة الرياض — فرصة استثمارية استثنائية.</p>
+        </div>
+      </div>
+      <div class="mission-item">
+        <div class="mission-icon">💼</div>
+        <div>
+          <h4>رواتب القطاع الخاص</h4>
+          <p>تبلغ قيمة الأجور المسجّلة في القطاع الخاص قرابة <strong style="color:var(--gold)">427 مليار ريال</strong> — طاقة مالية هائلة تنتظر التوجيه الأمثل.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div class="services-wrap">
+  <div class="services-inner" id="services">
+    <div class="section-label">04 — خدماتنا</div>
+    <h2 class="section-title">خـدمـاتـنـا</h2>
+    <div class="divider"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>الوحدات الاستثمارية</h3>
+        <p>تأسيس الوحدات الاستثمارية داخل الجهات وإدارتها من خلال شركاءنا الاستراتيجيين، والعمل على إسنادهم لتنمية مؤشراتها.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>البنية التحتية للتقنية المالية</h3>
+        <p>تأسيس البنية التحتية التقنية المالية وربطها بالممكنات التي تُسهم في إطلاق عملياتها على أوسع نطاق.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>النماذج المالية والتمويلية</h3>
+        <p>بناء النماذج المالية والتمويلية وجلب المرخّصين لتنفيذها على أرض الواقع.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>الدعم الاستراتيجي المستدام</h3>
+        <p>تمكين الجهة بمختلف أوجه إمدادات الدعم المختلفة: تمويلياً وتأمينياً واستشارياً.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🕌</div>
+        <h3>الأوقاف والتحول الرقمي</h3>
+        <p>الإسناد والإنشاء والإدارة وتشغيل العمليات بما ينعكس على مستهدفات المصارف الخيرية المستهدفة في صك الوقفية.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <h3>الجولات الاستثمارية</h3>
+        <p>قيادة الجولات الاستثمارية بما يحقق تطلعات الطرفين بشكل عادل ومنصف وبما يدعم نمو الشركة المستهدفة.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-label">05 — فريقنا</div>
+  <h2 class="section-title">نـبـذة عن فريقنا</h2>
+  <div class="divider"></div>
+  <p style="color:var(--white-70);font-size:17px;max-width:700px;line-height:1.8;margin-bottom:0">يتمتع فريق أركان بخبرات يصل مجموعها إلى <strong style="color:var(--gold)">52 عاماً</strong> في تطوير الأعمال والتأمين والتقنية المالية والأنظمة الرقمية الخاصة والحكومية، فضلاً عن صفتهم كمؤسّسين في عدد من الشركات المالية والاستشارية.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-top">👨‍💼</div>
+      <div class="team-body">
+        <h3>المهندس ماجد مباركي</h3>
+        <div class="team-exp">الرئيس التنفيذي · ceo@spi.sa</div>
+        <div class="team-tags">
+          <span class="team-tag">ابتكار مالي</span>
+          <span class="team-tag">استثمار اجتماعي</span>
+          <span class="team-tag">تحول رقمي</span>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-top">👨‍💼</div>
+      <div class="team-body">
+        <h3>المهندس فهد الحربي</h3>
+        <div class="team-exp">خبير الأنظمة الرقمية واستراتيجيات الاستدامة</div>
+        <div class="team-tags">
+          <span class="team-tag">أنظمة رقمية</span>
+          <span class="team-tag">استدامة</span>
+          <span class="team-tag">أتمتة العمليات</span>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-top">👨‍💼</div>
+      <div class="team-body">
+        <h3>المستشار إبراهيم مهارش</h3>
+        <div class="team-exp">مستشار الأعمال ودراسات الجدوى</div>
+        <div class="team-tags">
+          <span class="team-tag">استشارات أعمال</span>
+          <span class="team-tag">دراسات الجدوى</span>
+          <span class="team-tag">تنمية الموارد</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<div class="achievements-wrap">
+  <div class="achievements-inner" id="achievements">
+    <div class="section-label">06 — إنجازاتنا</div>
+    <h2 class="section-title">إنـجـازاتـنـا</h2>
+    <div class="divider"></div>
+    <div class="achieve-grid">
+      <div class="achieve-card">
+        <div class="achieve-big">+25</div>
+        <p>اتفاقية استراتيجية نوعية تعزز من موارد أركان تجاه عملاءها</p>
+      </div>
+      <div class="achieve-card">
+        <div class="achieve-big">+35</div>
+        <p>صانع قرار في جهات وشركات رغبوا بالخدمات المقدمة</p>
+      </div>
+      <div class="achieve-card">
+        <div class="achieve-big">120M+</div>
+        <p>ريال سعودي حركة مالية جرى تهيئة ملفاتها للشركات المستفيدة</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TARGETS -->
+<section id="targets">
+  <div class="section-label">07 — مستهدفاتنا</div>
+  <h2 class="section-title">مستهدفاتنا لـ 2026</h2>
+  <div class="divider"></div>
+  <div class="targets-grid">
+    <div class="target-card">
+      <div class="target-num">45+</div>
+      <div>
+        <h3>شركة ومنظمة</h3>
+        <p>نستهدف إيصال خدماتنا إلى أكثر من 45 شركة ومنظمة خلال عام 2026م.</p>
+      </div>
+    </div>
+    <div class="target-card">
+      <div class="target-num">45+</div>
+      <div>
+        <h3>اتفاقية استراتيجية فاعلة</h3>
+        <p>نعتزم رفع مؤشر الشركات الاستراتيجية إلى مستوى 45 اتفاقية استراتيجية فاعلة ومؤثرة.</p>
+      </div>
+    </div>
+    <div class="target-card">
+      <div class="target-num">1.5B</div>
+      <div>
+        <h3>ريال حجم العمليات</h3>
+        <p>تأسيس مسارات استشارية نوعية لإطلاق عمليات بقيمة 1.5 مليار ريال في 2026م.</p>
+      </div>
+    </div>
+    <div class="target-card">
+      <div class="target-num">🚀</div>
+      <div>
+        <h3>إطلاق ARKAN FINANCE</h3>
+        <p>نستهدف إطلاق الذراع التمويلي بنموذج تمويلي مرن وفريد متوافق مع أحكام الشريعة الإسلامية.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<div class="partners-wrap">
+  <div class="partners-inner">
+    <div class="section-label">08 — علاقات الأعمال</div>
+    <h2 class="section-title">شركاؤنا الاستراتيجيون</h2>
+    <div class="divider"></div>
+    <div class="partners-row">
+      <div class="partner-pill">Sukuk Capital · صكوك</div>
+      <div class="partner-pill">Raqamyah · رقمية</div>
+      <div class="partner-pill">Sanad · سند</div>
+      <div class="partner-pill">Tarmeez Capital · ترميز</div>
+      <div class="partner-pill">VillaCapital · فيلا المالية</div>
+      <div class="partner-pill">Wadi Halfa · وادي حلفا</div>
+      <div class="partner-pill">UIC</div>
+      <div class="partner-pill">مؤسسة فرحان ابن المبارك القحطاني</div>
+      <div class="partner-pill">Sumou · سمو</div>
+      <div class="partner-pill">صندوق دعم الجمعيات</div>
+      <div class="partner-pill">مؤسسة الملك عبدالله الإنسانية</div>
+      <div class="partner-pill">Waqfy · وقفي</div>
+      <div class="partner-pill">إحسان</div>
+      <div class="partner-pill">أوقاف — الهيئة العامة للأوقاف</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-wrap" id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="display:inline-block">تواصل معنا</div>
+    <h2>نرحب بشراكتكم</h2>
+    <p>مقرّنا في مركز الملك عبدالله المالي (KAFD) — الرياض</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="cicon">📍</div>
+        <div class="clbl">الموقع</div>
+        <div class="cval">KAFD — 4.07</div>
+      </div>
+      <div class="contact-item">
+        <div class="cicon">📞</div>
+        <div class="clbl">الهاتف</div>
+        <div class="cval">500 90 10 60</div>
+      </div>
+      <div class="contact-item">
+        <div class="cicon">✉️</div>
+        <div class="clbl">البريد</div>
+        <div class="cval">ceo@spi.sa</div>
+      </div>
+    </div>
+    <a href="mailto:ceo@spi.sa" class="cta-btn">تواصل مع المهندس ماجد مباركي</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="brand">ARKAN</div>
+  <div class="copy">© 2026 أركان الاستدامة للاستثمار · جميع الحقوق محفوظة</div>
+  <div class="site">spi.sa</div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const el = document.getElementById('sp');
+    const total = document.body.scrollHeight - window.innerHeight;
+    el.style.width = (window.scrollY / total * 100) + '%';
+  });
+</script>
+</body>
+</html>
